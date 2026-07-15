@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTakToe</title>
+    <link rel="icon" href="Bilder/Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="center">
+    <h1 class="center">Tik Tak Toe</h1>
+    <div class="info-button">
+        <button class="grosse" onclick="infoside()">?</button>
+    </div>
+
+    <p id="status" class="player"></p>
+    <div class="start-button">
+        <button class="grosse" onclick="weiter2()">🏠</button>
+    </div>
+
+    <div class="board">
+    <button id=1 onclick="place(this, 0)"></button>
+    <button id=2 onclick="place(this, 1)"></button>
+    <button id=3 onclick="place(this, 2)"></button>
+
+    <button id=4 onclick="place(this, 3)"></button>
+    <button id=5 onclick="place(this, 4)"></button>
+    <button id=6 onclick="place(this, 5)"></button>
+
+    <button id=7 onclick="place(this, 6)"></button>
+    <button id=8 onclick="place(this, 7)"></button>
+    <button id=9 onclick="place(this, 8)"></button>
+</div>
+<br>
+<div class="center">
+    <button style="font-size: 18px;" onclick="loschen()">↻ Neues Spiel</button>
+</div>
+<div>    
+    <h3>KI Highscore</h3>
+    <p>Meine Punkte: <span id="aktuell"></span></p>
+    <table class="left hover-table hover-cell">
+    <tr>
+        <th></th>
+        <th>Leicht</th>
+        <th>Mittel</th>
+        <th>Schwer</th>
+    </tr>
+    <tr>
+        <th>Spieler</th>
+        <td id="lplayer"></td>
+        <td id="mplayer"></td>
+        <td id="splayer"></td>
+    </tr>
+    <tr>
+        <th>Punkte</th>
+        <td id="lscore"></td>
+        <td id="mscore"></td>
+        <td id="sscore"></td>
+    </tr>
+</table>
+</div>
+<script src="ki.js"></script>
+</body>
+</html>

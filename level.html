@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTakToe</title>
+    <link rel="icon" href="Bilder/Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ki.css">
+</head>
+
+<body>
+    <h1 class="center">Tik Tak Toe</h1>
+    <div class="info-button">
+        <button class="grosse" onclick="infoside()">?</button>
+    </div>
+
+    <div class="start-button">
+        <button class="grosse" onclick="weiter()">🏠</button>
+    </div>
+    <p class="text">Wähle hier die Stärke deines gegners aus:</p>
+        <br>
+    <div>
+        <button class="leicht-button" onclick="ki('leicht', status)">Leicht</button>
+        <br><br>
+        <button class="mittel-button" onclick="ki('mittel', status)">Mittel</button>
+        <br><br>
+        <button class="schwer-button" onclick="ki('schwer', status)">Schwer</button>
+    </div>
+
+<script src="ki.js"></script>
+</body>
+</html>

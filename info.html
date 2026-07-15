@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTakToe</title>
+    <link rel="icon" href="Bilder/Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ki.css">
+</head>
+<body>
+    <div class="start-button">
+        <button class="grosse" onclick="weiter()">🏠</button>
+    </div>
+
+    <h1 class="center">Tik Tak Toe</h1>
+    <div style="align-self: center;">
+    <h3>🎮 Spielablauf</h3>
+    <ul>
+        <li>Das Spiel wird auf einem 3×3-Feld gespielt.</li>
+        <li>Zwei Spieler treten gegeneinander an.</li>
+        <li>Die Spieler setzen abwechselnd ein X oder ein O in ein freies Feld.</li>    
+    </ul>
+    <h3>🏆 Ziel des Spiels</h3>
+    <ol>
+        <li>Drei eigene Zeichen in eine Reihe bringen.</li>
+        <li>Die Reihe kann waagerecht →, senkrecht ↓ oder diagonal ↘ sein.</li>
+        <li>Wer zuerst drei Zeichen in einer Reihe hat, gewinnt.</li>    
+    </ol>
+    <h3>🧠 Strategien</h3>
+    <ul>
+        <li>Die Mitte ist oft ein guter Startpunkt.</li>
+        <li>Versuche, mehrere Gewinnmöglichkeiten gleichzeitig zu schaffen.</li>
+        <li>Blockiere rechtzeitig die Reihen deines Gegners.</li>    
+    </ul>
+    <h3>⭐ Punkte verteilung (nur bei KI)</h3>
+    <ul>
+        <li>Sieg: +2 Punkte</li>
+        <li>Niederlage: 0 Punkte</li>
+        <li>Untentschieden: +1 Punkt</li>
+        <li>Die Punkte werden zurückgesetzt bei ...</li> 
+        <dd>- einer Niederlage</dd>
+        <dd>- neustarten einer Runde <button class="leer">↻ Neues Spiel</button></dd>
+        <dd>- verlassen der Runde <button class="leer">🏠</button></dd>
+    </ul>
+    </div>
+    <p class="left2">P.s. du kannst jederzeit über diesen Button <button class="leer">?</button> zu dieser Seite zurückkehren.</p>
+    <button class="zurueck" onclick="zuruck()">← Zurück</button>
+<script src="script.js"></script>
+</body>
+</html>

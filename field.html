@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTakToe</title>
+    <link rel="icon" href="Bilder/Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="center">
+    <h1 class="center">Tik Tak Toe</h1>
+    <div class="info-button">
+        <button class="grosse" onclick="infoside()">?</button>
+    </div>
+
+    <p id="status" class="player"></p>
+    <div class="start-button">
+        <button class="grosse" onclick="weiter()">🏠</button>
+    </div>
+
+    <div class="board">
+    <button id=1 onclick="place(this, 0)"></button>
+    <button id=2 onclick="place(this, 1)"></button>
+    <button id=3 onclick="place(this, 2)"></button>
+
+    <button id=4 onclick="place(this, 3)"></button>
+    <button id=5 onclick="place(this, 4)"></button>
+    <button id=6 onclick="place(this, 5)"></button>
+
+    <button id=7 onclick="place(this, 6)"></button>
+    <button id=8 onclick="place(this, 7)"></button>
+    <button id=9 onclick="place(this, 8)"></button>
+</div>
+<br>
+<div class="center">
+    <button style="font-size: 18px;" onclick="reload()">↻ Neues Spiel</button>
+</div>
+<div>
+<h3>Statistik</h3>
+<table class="left hover-table hover-cell">
+    <tr>
+        <th>Spieler</th>
+        <th>Siege</th>
+        <th>Niederlagen</th>
+        <th>Schnitt</th>
+    </tr>
+    <tr>
+        <td>X</td>
+        <td id="xwin"></td>
+        <td id="xlos"></td>
+        <td id="gesx"></td>
+    </tr>
+    <tr>
+        <td>O</td>
+        <td id="owin"></td>
+        <td id="olos"></td>
+        <td id="geso"></td>
+    </tr>
+</table>
+</div>
+<br>
+<div class="center">
+    <button style="font-size: 18px;" onclick="newstat()">↻ Neue Statistik</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

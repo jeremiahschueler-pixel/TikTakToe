@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTakToe</title>
+    <link rel="icon" href="Bilder/Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ki.css">
+</head>
+
+<body>
+    <h1 class="center">Tik Tak Toe</h1>
+    <p class="text">Schön das du hier bist.</p>
+    <p class="text">Spiele den beliebten Klassiker direkt in deinem Browser<br>
+    und stelle dein Strategisches Geschick unter Beweis.</p>
+    <p class="text">Falls du die Spielregeln noch nicht kennst<br>
+    oder weitere Informationen benötigst, besuche gerne unsere <a href="info.html">Info-Seite</a>.</p>
+    <p class="text">Wähle anschließend deinen bevorzugten Spielmodus:</p>
+        <br>
+    <div>
+        <button class="start" onclick="field()">Gegen Freund (Lokal)</button>
+        <br><br>
+        <button class="start" onclick="ki()">Gegen KI</button>
+    </div>
+
+    <br><br><br>
+    <div>
+<h3>Letzte Statistik</h3>
+<table class="left hover-table hover-cell">
+    <tr>
+        <th>Spieler</th>
+        <th>Siege</th>
+        <th>Niederlagen</th>
+        <th>Schnitt</th>
+    </tr>
+    <tr>
+        <td>X</td>
+        <td id="xwin"></td>
+        <td id="xlos"></td>
+        <td id="gesx"></td>
+    </tr>
+    <tr>
+        <td>O</td>
+        <td id="owin"></td>
+        <td id="olos"></td>
+        <td id="geso"></td>
+    </tr>
+    </table>
+    <h3>KI Highscore</h3>
+    <table class="left hover-table hover-cell">
+    <tr>
+        <th></th>
+        <th>Leicht</th>
+        <th>Mittel</th>
+        <th>Schwer</th>
+    </tr>
+    <tr>
+        <th>Spieler</th>
+        <td id="lplayer"></td>
+        <td id="mplayer"></td>
+        <td id="splayer"></td>
+    </tr>
+    <tr>
+        <th>Punkte</th>
+        <td id="lscore"></td>
+        <td id="mscore"></td>
+        <td id="sscore"></td>
+    </tr>
+</table>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
