@@ -1,3 +1,8 @@
+const supabaseUrl = 'https://tngojtqidscaesacjdqc.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRuZ29qdHFpZHNjYWVzYWNqZHFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2MjYzOTIsImV4cCI6MjEwNDIwMjM5Mn0.ZSUd990qIH44pUYbovAje_5EcpxDNmBEOknBVxSsdnY';
+const db = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+
 function infoside() {
     window.open('info.html', '_self');
 }
@@ -197,3 +202,29 @@ const sscore = Number(localStorage.getItem("sscore")) || 0;
 document.getElementById("sscore").innerHTML = sscore;
 const splayer = localStorage.getItem("splayer") || "";
 document.getElementById("splayer").innerHTML = splayer;
+
+async function ladeGlobaleHighscores() {
+    const { data, error } = await db
+        .from('highscore')
+        .select('*')
+        .order('score', { ascending: false });
+
+    if (error) {
+        console.error("Fehler beim Laden:", error);
+        return;
+    }
+
+    const levels = { leicht: "l", mittel: "m", schwer: "s" };
+
+    for (const [level, prefix] of Object.entries(levels)) {
+        const bester = data.find(d => d.level === level);
+        if (bester) {
+            const scoreEl = document.getElementById(prefix + "score");
+            const playerEl = document.getElementById(prefix + "player");
+            if (scoreEl) scoreEl.textContent = bester.score;
+            if (playerEl) playerEl.textContent = bester.player;
+        }
+    }
+}
+
+ladeGlobaleHighscores();
