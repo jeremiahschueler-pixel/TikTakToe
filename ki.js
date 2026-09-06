@@ -1,8 +1,3 @@
-const supabaseUrl = 'https://tngojtqidscaesacjdqc.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRuZ29qdHFpZHNjYWVzYWNqZHFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2MjYzOTIsImV4cCI6MjEwNDIwMjM5Mn0.ZSUd990qIH44pUYbovAje_5EcpxDNmBEOknBVxSsdnY';
-const db = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-
 // #region fertig
 function infoside() {
     window.open('info.html', '_self');
@@ -88,8 +83,7 @@ window.onload = function () {
         ladeSpielfeld(feld);
     }
 
-    ladeGlobaleHighscores();
-
+    // Falls die KI beginnt
     if (spieler === "KI") {
         kiDenkt = true;
 
@@ -319,29 +313,20 @@ function checkWinner() {
     return false;
 }
 
-async function checkRecord(){
+function checkRecord(){
     if (aktuell >= lscore && status === "leicht") {
         name = prompt("Du hast einen neuen Rekord aufgestellt!\n gib deinen Namen ein:");
         localStorage.setItem("lscore", aktuell);
         localStorage.setItem("lplayer", name);
-        await speichereHighscore("leicht", name, aktuell);
     } else if (aktuell >= mscore && status === "mittel") {
         name = prompt("Du hast einen neuen Rekord aufgestellt!\n gib deinen Namen ein:");
         localStorage.setItem("mscore", aktuell);
         localStorage.setItem("mplayer", name);
-        await speichereHighscore("mittel", name, aktuell);
     } else if (aktuell >= sscore && status === "schwer") {
         name = prompt("Du hast einen neuen Rekord aufgestellt!\n gib deinen Namen ein:");
         localStorage.setItem("sscore", aktuell);
         localStorage.setItem("splayer", name);
-        await speichereHighscore("schwer", name, aktuell);
     }
-}
-
-async function speichereHighscore(level, player, score) {
-    if (!player || score <= 0) return;
-    const { error } = await db.from('highscore').insert({ level, player, score });
-    if (error) console.error("Fehler beim Speichern:", error);
 }
 
 function leicht() {
@@ -580,28 +565,3 @@ function schwer() {
     return bestMoveRow * 3 + bestMoveCol;
 }
 // #endregion
-
-
-async function ladeGlobaleHighscores() {
-    const { data, error } = await db
-        .from('highscore')
-        .select('*')
-        .order('score', { ascending: false });
-
-    if (error) {
-        console.error("Fehler beim Laden:", error);
-        return;
-    }
-
-    const levels = { leicht: "l", mittel: "m", schwer: "s" };
-
-    for (const [level, prefix] of Object.entries(levels)) {
-        const bester = data.find(d => d.level === level);
-        if (bester) {
-            const scoreEl = document.getElementById(prefix + "score");
-            const playerEl = document.getElementById(prefix + "player");
-            if (scoreEl) scoreEl.textContent = bester.score;
-            if (playerEl) playerEl.textContent = bester.player;
-        }
-    }
-}
